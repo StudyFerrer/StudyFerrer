@@ -1,5 +1,6 @@
 import { Calendar, CheckCircle, HelpCircle } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import DashboardStats from '../components/DashboardStats'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -13,12 +14,8 @@ export default function Home() {
         </div>
 
         {/* Les 3 gros blocs */}
-        <div className="grid gap-6 md:grid-cols-3">
-          {/* Bloc 1 – Nouvelle Réservation */}
-          <div
-            onClick={() => navigate('/locaux')}
-            className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all cursor-pointer"
-          >
+        <div className="grid gap-6 md:grid-cols-3 mb-12">
+          <div onClick={() => navigate('/locaux')} className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all cursor-pointer">
             <Calendar className="w-12 h-12 text-blue-600 mb-4" />
             <h2 className="text-2xl font-bold mb-2">Nouvelle Réservation</h2>
             <p className="text-gray-600 mb-4">Réserver une salle pour demain</p>
@@ -28,28 +25,24 @@ export default function Home() {
             <p className="text-blue-600 font-semibold text-right text-xl">→</p>
           </div>
 
-          {/* Bloc 2 – Mes Réservations */}
-          <div
-            onClick={() => navigate('/mes-reservations')}
-            className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all cursor-pointer"
-          >
+          <div onClick={() => navigate('/mes-reservations')} className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all cursor-pointer">
             <CheckCircle className="w-12 h-12 text-green-600 mb-4" />
             <h2 className="text-2xl font-bold mb-2">Mes Réservations</h2>
             <p className="text-gray-600 mb-4">Voir mes créneaux passés et futurs</p>
             <p className="text-blue-600 font-semibold text-right text-xl">→</p>
           </div>
 
-          {/* Bloc 3 – FAQ */}
-          <div
-            onClick={() => navigate('/faq')}
-            className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all cursor-pointer"
-          >
+          <div onClick={() => navigate('/faq')} className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all cursor-pointer">
             <HelpCircle className="w-12 h-12 text-purple-600 mb-4" />
             <h2 className="text-2xl font-bold mb-2">FAQ & Règles</h2>
             <p className="text-gray-600 mb-4">Tout savoir sur le fonctionnement</p>
             <p className="text-blue-600 font-semibold text-right text-xl">→</p>
           </div>
         </div>
+
+        {/* Stats en dessous */}
+        <h2 className="text-3xl font-bold text-center mb-8">Tes statistiques</h2>
+        <DashboardStats />
       </div>
     </div>
   )
